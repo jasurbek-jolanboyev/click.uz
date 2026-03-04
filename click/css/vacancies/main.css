@@ -1,0 +1,957 @@
+.vac {
+    padding: 80px 0 0;
+}
+
+.vac-header {
+    background: url(../../images/vacancies/vac-header.jpg) no-repeat;
+    background-position: 0 -2px;
+    background-size: cover;
+    padding: 310px 0 30px;
+}
+
+.vac-header-container {
+    max-width: 795px;
+    margin: 0 auto;
+}
+
+.vac-header-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.vac-header-title>h2 {
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 66px;
+    margin-bottom: 0;
+}
+
+.vac-header-category_title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.vac-header-category_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vac-header-category_item {
+    padding: 0 15px;
+}
+
+.vac-header-category_item>a {
+    font-size: 24px;
+    color: #56AFDE;
+}
+
+.vac-header-category_item>a>span {
+    color: #F1F45B;
+}
+
+.vac-about {
+    padding: 72px 0 85px;
+}
+
+.vac-about-container {
+    max-width: 953px;
+    margin: 0 auto;
+}
+
+.vac-about-title>h4 {
+    font-size: 36px;
+    line-height: 64px;
+    margin-bottom: 24px;
+}
+
+.vac-about-box {
+    display: flex;
+}
+
+.vac-about-text {
+    margin-right: 68px;
+}
+
+.vac-about-text>p {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 0;
+}
+
+.vac-about-btn {
+    height: 55px;
+    line-height: 55px;
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    background: #56AFDE;
+    border-radius: 65px;
+    display: inline-block;
+    padding: 0 30px;
+    margin-top: 87px;
+}
+
+.vac-about-num_item {
+    margin-bottom: 40px;
+}
+
+.vac-about-num_item>h5 {
+    font-size: 100px;
+    color: #43687B;
+    line-height: 100px;
+}
+
+.vac-about-num_item>span {
+    font-size: 18px;
+    line-height: 25px;
+    color: #43687B;
+}
+
+.vac-info {
+    max-width: 953px;
+    margin: 0 auto;
+    padding-bottom: 70px;
+}
+
+.vac-info-container {
+    max-width: 710px;
+}
+
+.vac-info-des {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 60px;
+}
+
+.vac-info-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vac-info-item {
+    width: 342px;
+    display: flex;
+    margin-bottom: 45px;
+}
+
+.vac-info-item-icon {
+    margin-right: 18px;
+    margin-top: -11px;
+}
+
+.vac-info-item1 {
+    margin-right: 21px;
+}
+
+.vac-info-item-text>p {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.vac-info-item-icon6 {
+    transform: rotate(-28.1deg);
+    position: relative;
+}
+
+.vac-info-item-icon6-circle {
+    position: absolute;
+    z-index: -1;
+    left: 15px;
+    top: 3px;
+}
+
+.vac-slider {
+    margin-bottom: 79px;
+}
+
+.vac-swiper-container {
+    padding: 0 120px;
+}
+
+.vac-slide {
+    opacity: 0.5;
+}
+
+.vac-slide.swiper-slide-active {
+    opacity: 1;
+}
+
+.vac-slide>img {
+    width: auto;
+}
+
+.vac-swiper-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.vac-swiper-nav>div {
+    position: relative;
+    margin: 0 11px;
+    cursor: pointer;
+}
+
+.vac-swiper-nav>div.swiper-button-disabled {
+    opacity: 0.5;
+}
+
+.vac-swiper-nav>div:focus {
+    outline: 0 !important;
+}
+
+.vac-reviews {
+    padding-bottom: 94px;
+}
+
+.vac-reviews-container {
+    max-width: 1057px;
+    margin: 0 auto;
+}
+
+.vac-reviews-title>h4 {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 37px;
+    margin-bottom: 23px;
+}
+
+.vac-reviews-list {
+    display: flex;
+    margin-bottom: 41px;
+}
+
+.vac-review1 {
+    width: 224px;
+    margin-right: 96px;
+}
+
+.vac-review-des {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #D1D1D4;
+    margin-bottom: 10px;
+}
+
+.vac-review-author {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    color: #56AFDE;
+}
+
+.vac-review2 {
+    width: 340px;
+    position: relative;
+    padding-left: 45px;
+    margin-right: 70px;
+}
+
+.vac-review2-box {
+    display: flex;
+    flex-direction: column;
+    width: 223px;
+    position: relative;
+}
+
+.vac-review-avatar {
+    margin-top: 15px;
+}
+
+.vac-review-line {
+    position: absolute;
+    top: -71px;
+    left: 0;
+}
+
+.vac-review3 {
+    width: 326px;
+    position: relative;
+}
+
+.vac-review3-ava {
+    position: absolute;
+    bottom: -25px;
+    right: 0;
+}
+
+.vac-review3-box {
+    width: 223px;
+}
+
+.vac-reviews-container2 {
+    max-width: 962px;
+}
+
+.vac-reviews-list-box-left {
+    width: 588px;
+    margin-right: 139px;
+}
+
+.vac-reviews-list-box-right {
+    width: 231px;
+}
+
+.vac-review4 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 41px;
+}
+
+.vac-review4-img {
+    margin-right: 51px;
+}
+
+.vac-review5 {
+    width: 223px;
+    position: relative;
+    padding-top: 25px;
+}
+
+.vac-review5-img {
+    position: absolute;
+    bottom: -39px;
+    right: -8px;
+}
+
+.vac-review6 {
+    display: flex;
+    align-items: flex-end;
+}
+
+.vac-review6-text {
+    margin-right: 23px;
+}
+
+.vac-tour {
+    padding-bottom: 25px;
+}
+
+.vac-tour-title {
+    max-width: 1057px;
+    margin: 0 auto 23px;
+}
+
+.vac-tour-image {
+    margin-bottom: 23px;
+}
+
+.vac-tour-image>img {
+    width: 100%;
+}
+
+.vac-tour-des {
+    max-width: 1057px;
+    margin: 0 auto;
+    margin-bottom: 87px;
+}
+
+.vac-tour-des>p {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0;
+    max-width: 954px;
+}
+
+.vac-tour-box {
+    max-width: 1057px;
+    margin: 0 auto;
+}
+
+.vac-tour-box-container {
+    max-width: 710px;
+}
+
+.vac-tour-box-title>h4 {
+    font-size: 36px;
+    line-height: 64px;
+    margin-bottom: 24px;
+}
+
+.vac-tour-box-item {
+    display: flex;
+}
+
+.vac-tour-box-item>p {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
+.vac-tour-box-item>p>a {
+    color: #56AFDE;
+    text-decoration: underline;
+}
+
+.vac-list {
+    background: #000;
+    padding: 34px 0 3px;
+}
+
+.vac-list-container {
+    max-width: 1057px;
+    margin: 0 auto;
+}
+
+.vac-list-title>h3 {
+    font-size: 36px;
+    line-height: 64px;
+    margin-bottom: 6px;
+}
+
+.vac-list-category {
+    margin-bottom: 45px;
+}
+
+.vac-list-category-title {
+    margin-bottom: 10px;
+}
+
+.vac-list-category-title>span {
+    font-size: 24px;
+    line-height: 37px;
+}
+
+.vac-list-category-box {
+    display: flex;
+    margin: 0 -10px;
+}
+
+.vac-list-category-box{
+    flex-wrap: wrap;
+}
+
+.vac-list-category-item {
+    width: 100%;
+    margin: 0 10px;
+}
+
+.vac-list-category-item2 {
+    width: 31%;
+    margin: 0 10px 45px;
+}
+
+.vac-list-category-name {
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #56AFDE;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.vac-list-category-name:hover {
+    text-decoration: underline;
+}
+
+.vac-list-category-des {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+
+.vac-list-category-more{
+    color: #56AFDE;
+    background: none;
+    padding: 0;
+    border: 0;
+    margin-top: 10px;
+}
+
+.vac-faq {
+    padding: 39px 0 109px;
+}
+
+.vac-faq-container {
+    max-width: 1057px;
+    margin: 0 auto;
+}
+
+.vac-faq-title>h3 {
+    font-size: 36px;
+    line-height: 64px;
+    margin-bottom: 24px;
+}
+
+.vac-faq-box {
+    display: flex;
+    align-items: flex-end;
+}
+
+.vac-faq-list {
+    width: 712px;
+    margin-right: 20px;
+}
+
+.vac-faq-item {
+    margin-bottom: 30px;
+}
+
+.vac-faq-item-title {
+    display: flex;
+}
+
+.vac-faq-item-title>span {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.vac-faq-item-title>span:first-child {
+    width: 25px;
+    text-align: center;
+}
+
+.vac-faq-item-title>span:nth-child(2) {
+    font-weight: 600;
+}
+
+.vac-faq-item-des {
+    padding-left: 25px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.vac-faq-item-des a {
+    text-decoration-line: underline;
+    color: #56AFDE;
+}
+
+.vacm {
+    display: none;
+}
+
+@media(min-width:1600px) {
+    .vac-slide>img {
+        width: 100%;
+    }
+}
+
+@media(max-width:991px) {
+    .vac-header {
+        padding: 240px 12px 40px;
+    }
+
+    .vac-header-title {
+        margin-bottom: 0;
+    }
+
+    .vac-header-category {
+        display: none;
+    }
+
+    .vac-header-title>h2 {
+        font-size: 36px;
+        line-height: 36px;
+    }
+
+    .vac-about,
+    .vac-info,
+    .vac-slider,
+    .vac-reviews,
+    .vac-tour,
+    .vac-list,
+    .vac-faq {
+        display: none;
+    }
+
+    .vacm {
+        padding: 0;
+        display: block;
+    }
+
+    .vacm-button {
+        margin-bottom: 56px;
+        text-align: center;
+        padding-top: 39px;
+    }
+
+    .vacm-button>a {
+        background: #56AFDE;
+        border-radius: 65px;
+        height: 55px;
+        line-height: 55px;
+        border: 0;
+        padding: 0 31px 0 30px;
+        color: #fff;
+        font-weight: 500;
+        font-size: 20px;
+        display: inline-block;
+    }
+
+    .vacm-list {
+        padding: 0 0 32px;
+    }
+
+    .vacm-item {
+        margin-bottom: 50px;
+    }
+
+    .vacm-item-button {
+        display: flex;
+        align-items: center;
+    }
+
+    .vacm-item-button>.vacm-item-title>img {
+        transform: rotate(180deg);
+    }
+
+    .vacm-item-button.collapsed>.vacm-item-title>img {
+        transform: rotate(0);
+    }
+
+    .vacm-item-title {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .vacm-item-title {
+        padding: 0 32px 0 27px;
+    }
+
+    .vacm-item-title>img {
+        margin-left: 13px;
+    }
+
+    .vacm-cont {
+        padding: 12px 32px 0 27px;
+    }
+
+    .vacm-about-des {
+        padding-bottom: 20px;
+    }
+
+    .vacm-about-des>p {
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 32px;
+        margin-bottom: 40px;
+    }
+
+    .vacm-about-num {
+        max-width: 223px;
+        margin: 0 auto;
+    }
+
+    .vacm-about-num-item {
+        margin-bottom: 42px;
+    }
+
+    .vacm-about-num-title>span {
+        font-size: 100px;
+        line-height: 100px;
+        color: #43687B;
+    }
+
+    .vacm-about-num-des>p {
+        font-size: 18px;
+        line-height: 25px;
+        color: #43687B;
+        margin-bottom: 0;
+    }
+
+    .vacm-about-des2>p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 25px;
+    }
+
+    .vacm-feat-item {
+        display: flex;
+        margin-bottom: 14px;
+    }
+
+    .vacm-feat-icon {
+        margin-right: 8px;
+    }
+
+    .vacm-feat-text>p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 0;
+    }
+
+    .vacm-reviews-des>p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: #D1D1D4;
+        margin-bottom: 10px;
+    }
+
+    .vacm-reviews-author>span {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        color: #56AFDE;
+    }
+
+    .vacm-review1 {
+        margin-bottom: 58px;
+    }
+
+    .vacm-review2 {
+        position: relative;
+        margin-bottom: 73px;
+    }
+
+    .vacm-reviews-line {
+        position: absolute;
+        left: -40px;
+        top: -55px;
+        z-index: -1;
+    }
+
+    .vacm-reviews-line>img {
+        width: 95%;
+    }
+
+    .vacm-review3 {
+        position: relative;
+        margin-bottom: 83px;
+    }
+
+    .vacm-review3 .vacm-reviews-ava {
+        position: absolute;
+        right: 0px;
+        bottom: -60px;
+    }
+
+    .vacm-review3 .vacm-reviews-ava>img {
+        width: 182px;
+    }
+
+    .vacm-review4 {
+        margin-bottom: 50px;
+    }
+
+    .vacm-review4 .vacm-reviews-ava {
+        text-align: center;
+    }
+
+    .vacm-review4 .vacm-reviews-ava>img {
+        width: 191px;
+    }
+
+    .vacm-review5 {
+        display: flex;
+    }
+
+    .vacm-tour-image {
+        padding: 22px 0;
+    }
+
+    .vacm-tour-image>img {
+        width: 100%;
+    }
+
+    .vacm-tour-des {
+        padding: 0 32px 0 27px;
+    }
+
+    .vacm-tour-des>p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .vacm-welcome {
+        padding: 16px 32px 0 27px;
+    }
+
+    .vacm-welcome-item {
+        display: flex;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        margin-left: -15px;
+        margin-bottom: 25px;
+    }
+
+    .vacm-welcome-item-num {
+        width: 15px;
+        text-align: center;
+    }
+
+    .vacm-welcome-item-text {
+        width: 100%;
+    }
+
+    .vacm-welcome-item-text>a {
+        text-decoration: underline;
+        color: #56AFDE;
+    }
+
+    .vacm-jobs {
+        background: #000;
+        padding: 56px 26px 19px 32px;
+    }
+
+    .vacm-jobs-title {
+        margin-bottom: 7px;
+    }
+
+    .vacm-jobs-title>span {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .vacm-jobs-list-title {
+        font-size: 18px;
+        line-height: 37px;
+        margin-bottom: 7px;
+    }
+
+    .vacm-jobs-item {
+        margin-bottom: 20px;
+    }
+
+    .vacm-jobs-item-title>a {
+        font-size: 18px;
+        line-height: 24px;
+        text-decoration-line: underline;
+        color: #56AFDE;
+        display: inline-block;
+        margin-bottom: 12px;
+    }
+
+    .vacm-jobs-item-des>p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 0;
+    }
+
+    .vacm-faq {
+        padding: 46px 34px 42px 35px;
+    }
+
+    .vacm-faq-title {
+        font-size: 24px;
+        line-height: 30px;
+        margin-bottom: 18px;
+    }
+
+    .vacm-faq-item {
+        margin-bottom: 30px;
+    }
+
+    .vacm-faq-item-title {
+        display: flex;
+    }
+
+    .vacm-faq-item-title-num {
+        width: 25px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 300;
+    }
+
+    .vacm-faq-item-title-text {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        width: 100%;
+    }
+
+    .vacm-faq-item-title-text>span {
+        color: #56AFDE;
+    }
+
+    .vacm-faq-item-cont {
+        padding-left: 23px;
+    }
+
+    .vacm-faq-item-cont>p {
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+
+    .vacm-faq-item-cont>p>a {
+        color: #56AFDE;
+        text-decoration: underline;
+    }
+
+    .vacm-faq-item-button .vacm-faq-item-title-text>span {
+        transform: rotate(180deg);
+        display: inline-block;
+    }
+
+    .vacm-faq-item-button.collapsed .vacm-faq-item-title-text>span {
+        transform: rotate(0);
+        display: inline-block;
+    }
+
+    .vacm-faq-button>a>img {
+        width: 100%;
+    }
+
+    .vacm-slider .swiper-slide>img {
+        max-width: 100%;
+    }
+
+    .vacm-slider .swiper-slide {
+        width: 80%;
+    }
+
+    .vacm-slider {
+        padding: 36px 0 13px;
+    }
+
+    .vacm-swiper-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 25px;
+    }
+
+    .vacm-swiper-nav>div {
+        margin: 0 11px;
+    }
+
+    .vacm-swiper-nav>div:focus {
+        outline: 0 !important;
+    }
+
+    .vac {
+        padding-top: 40px;
+    }
+
+    .vacm-up {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: none;
+    }
+
+    .vacm-up>button {
+        border: 0;
+        background: none;
+        padding: 0;
+    }
+}
+
+@media (max-width:991px) and (orientation:landscape) {
+    .vacm-slider .swiper-slide>img {
+        max-width: 100%;
+    }
+}

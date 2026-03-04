@@ -1,0 +1,777 @@
+.ident{
+    padding-top: 195px;
+    position: relative;
+}
+
+.ident::after{
+    content: '';
+    width: 416px;
+    height: 45px;
+    background: url(../../images/identification/topline.png) no-repeat;
+    position: absolute;
+    top: 85px;
+    left: -15px;
+}
+
+.ident::before{
+    content: '';
+    width: calc(100vw / 2);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: url(../../images/identification/screen1.png) no-repeat;
+}
+
+.ident-text>h2{
+    font-size: 48px;
+    letter-spacing: 0px;
+    color: #F7F8FA;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.ident-text>p{
+    font-size: 16px;
+    line-height: 36px;
+    color: rgba(255,255,255,0.8);
+    max-width: 585px;
+}
+
+.ident-bottom{
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 50px;
+}
+
+.ident-bottom>button{
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+    border: 0;
+}
+
+.identfeat{
+    padding: 120px 0;
+}
+
+.identtar-title{
+    text-align: center;
+}
+
+.identtar-title>h2{
+    font-size: 48px;
+    line-height: 60px;
+    margin-bottom: 40px;
+}
+
+.identtar-top{
+    padding: 0 0 30px;
+}
+
+.identtar-top-item{
+    padding: 0 20px;
+}
+
+.identtar-top-item>img{
+    width: 100%;
+    height: auto;
+}
+
+.identbox{
+    background: #1F1F2B;
+    box-shadow: 0 -3px 15px rgba(0,0,0,0.3);
+    padding: 10px 0 0;
+    position: relative;
+}
+
+.identbox::before{
+    content: '';
+    width: 1px;
+    height: 110%;
+    position: absolute;
+    left: calc(50% - 0.5px);
+    top: -50px;
+    background: rgba(255,255,255,0.2);
+}
+
+.identbox::after{
+    content: '';
+    width: 1px;
+    height: 40px;
+    position: absolute;
+    left: calc(50% - 0.5px);
+    bottom: -50px;
+    background: rgba(255,255,255,0.2);
+}
+
+.identbox-item{
+    padding: 25px;
+    position: relative;
+}
+
+.identbox-item__border::before{
+    content: '';
+    width: 80%;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+}
+
+.identbox-item__border2::before{
+    content: '';
+    width: 80%;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+}
+
+.identbox-item>h5{
+    font-size: 22px;
+    font-weight: 300;
+    color: #A7A7BC;
+}
+
+.identbox-item>h4{
+    margin-bottom: 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.identbox-item>h4>span{
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.identbox-item__right{
+    text-align: right;
+}
+
+.identbox-bottom{
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 25px;
+}
+
+.identbox-bottom>button{
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+    border: 0;
+}
+
+.ident-img{
+    display: none;
+}
+
+.identinfo-title{
+    text-align: center;
+}
+
+.identinfo-title>h2{
+    font-size: 48px;
+    line-height: 60px;
+    margin-bottom: 80px;
+}
+
+.identinfo{
+    padding-bottom: 90px;
+}
+
+.identinfo-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.identinfo-box-item{
+    width: 215px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: relative;
+}
+
+.identinfo-box-item-icon{
+    width: 97px;
+    height: 97px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent linear-gradient(132deg, #49B4CF 0%, #0095BA 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 5px 30px 35px #00B1E31F;
+    border-radius: 8px;
+    transform: rotate(45deg);
+}
+
+.identinfo-box-item-icon>img{
+    transform: rotate(-45deg);
+}
+
+.identinfo-box-item-title{
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 35px;
+}
+
+.identinfo-box-line{
+    position: relative;
+}
+
+.identinfo-box-line::before{
+    content: '';
+    width: 90%;
+    height: 1px;
+    background: #00B1E3;
+    position: absolute;
+    top: calc(50% - 0.5px);
+    left: 5%;
+    z-index: -1;
+    box-shadow: 5px 0 5px #00B1E3;
+}
+
+.identinfo-box-line .identinfo-box-item{
+    z-index: 5;
+    background: #181926;
+}
+
+.identinfo-box-line .identinfo-box-item{
+    position: relative;
+}
+
+.identinfo-box-line .identinfo-box-item:nth-child(2)::before{
+    content: '';
+    width: 11px;
+    height: 11px;
+    background: #00B1E3 0% 0% no-repeat padding-box;
+    opacity: 1;
+    filter: blur(1px);
+    border-radius: 11px;
+    top: calc(50% - 5.5px);
+    position: absolute;
+    left: -10px;
+    box-shadow: 0px 0px 10px #00b1e3;
+}
+
+.identinfo-box-line .identinfo-box-item:last-child:before{
+    content: '';
+    width: 11px;
+    height: 11px;
+    background: #00B1E3 0% 0% no-repeat padding-box;
+    opacity: 1;
+    filter: blur(1px);
+    border-radius: 11px;
+    top: calc(50% - 5.5px);
+    position: absolute;
+    left: -10px;
+    box-shadow: 0px 0px 10px #00b1e3;
+}
+
+.identwhat{
+    padding: 50px 0;
+}
+
+.identwhat-row{
+    align-items: center;
+}
+
+.identwhat-img>img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.identwhat-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.identwhat-text-box>h2{
+    font-size: 48px;
+    line-height: 60px;
+    margin-bottom: 70px;
+}
+
+.identwhat-text-box>ul>li{
+    position: relative;
+    font-size: 22px;
+    padding-left: 25px;
+    margin: 24px 0;
+}
+
+.identwhat-text-box>ul>li::before{
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background: #464860;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 4px);
+}
+
+.identwhat-text-box>h4{
+    font-size: 22px;
+    font-weight: 400;
+    margin: 40px 0 0;
+}
+
+.identstep{
+    padding: 50px 0 100px;
+}
+
+.identstep-title{
+    text-align: center;
+}
+
+.identstep-title>h2{
+    font-size: 48px;
+    line-height: 50px;
+    margin-bottom: 60px;
+}
+
+.identstep-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.identstep-item{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.identstep-icon{
+    margin-bottom: 28px;
+    width: 97px;
+    height: 97px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent linear-gradient(132deg, #49B4CF 0%, #0095BA 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 5px 30px 35px #00b1e31f;
+    border-radius: 8px;
+    transform: rotate(45deg);
+}
+
+.identstep-icon>img{
+    transform: rotate(-45deg);
+}
+
+.identstep-num{
+    font-size: 30px;
+    font-weight: 700;
+    color: #00B1E3;
+}
+
+.identstep-name>p{
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.identstep2{
+    margin-top: 65px;
+}
+
+.identstep3{
+    margin-top: 130px;
+}
+
+.identstep4{
+    margin-top: 195px;
+}
+
+.identstep5{
+    margin-top: 260px;
+}
+
+.identstep1::before{
+    content: '';
+    width: 160px;
+    height: 135px;
+    position: absolute;
+    left: 80%;
+    top: 0;
+    background: url(../../images/identification/stepline2.png);
+    background-size: cover;
+}
+
+.identstep2::before{
+    content: '';
+    width: 160px;
+    height: 135px;
+    position: absolute;
+    left: 80%;
+    top: 0;
+    background: url(../../images/identification/stepline2.png);
+    background-size: cover;
+}
+
+.identstep3::before{
+    content: '';
+    width: 160px;
+    height: 135px;
+    position: absolute;
+    left: 80%;
+    top: 0;
+    background: url(../../images/identification/stepline2.png);
+    background-size: cover;
+}
+
+.identstep4::before{
+    content: '';
+    width: 160px;
+    height: 135px;
+    position: absolute;
+    left: 80%;
+    top: 0;
+    background: url(../../images/identification/stepline2.png);
+    background-size: cover;
+}
+
+.identstep-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.identstep-bottom>button{
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+    border: 0;
+}
+
+.identstep-des{
+    text-align: center;
+    padding-top: 30px;
+}
+
+.identstep-des>h4{
+    font-size: 20px;
+    color: #00b1e3;
+}
+
+.identstop{
+    padding-bottom: 50px;
+}
+
+.identstop-title{
+    text-align: center;
+}
+
+.identstop-title>h2{
+    font-size: 48px;
+    line-height: 50px;
+    margin-bottom: 50px;
+}
+
+.identstop-top{
+    padding: 0 50px;
+}
+
+.identstop ul>li{
+    font-size: 16px;
+    line-height: 30px;
+    padding-left: 55px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.identstop ul>li::before{
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: calc(50% - 2px);
+}
+
+.identstop-more{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.identstop-more-line{
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+}
+
+.identstop-more-btn{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.identstop-more-btn>a:hover{
+    color: #00b1e3;
+}
+
+.identstop-more-content>h5{
+    font-size: 17px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.identimp p{
+    font-size: 14px;
+}
+
+@media screen and (min-width: 1401px) and (max-width: 1800px) {
+    .identstep1::before{
+        width: 120px;
+        height: 100px;
+    }
+    .identstep2::before{
+        width: 120px;
+        height: 100px;
+    }
+    .identstep3::before{
+        width: 120px;
+        height: 100px;
+    }
+    .identstep4::before{
+        width: 120px;
+        height: 100px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+    .identstep1::before{
+        width: 90px;
+        height: 75px;
+    }
+    .identstep2::before{
+        width: 90px;
+        height: 75px;
+    }
+    .identstep3::before{
+        width: 90px;
+        height: 75px;
+    }
+    .identstep2::before{
+        width: 90px;
+        height: 75px;
+    }
+}
+
+@media screen and (max-width:1199px) {
+    .ident{
+        padding: 50px 0 0;
+    }
+    .ident::before{
+        content: none;
+    }
+    .ident-text>h2{
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    .ident-text>p{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .ident-img{
+        display: block;
+        text-align: right;
+    }
+    .ident-img>img{
+        width: 100%;
+    }
+    .ident-bottom{
+        padding: 20px 0;
+    }
+}
+
+@media screen and (max-width:991px) {
+    .ident::after{
+        content: none;
+    }
+    .identwhat-img>img{
+        width: 100%;
+    }
+    .ident{
+        padding: 50px 0 0;
+    }
+    .ident::before{
+        content: none;
+    }
+    .ident .row{
+        flex-direction: column-reverse;
+    }
+    .ident-text>h2{
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    .ident-text>p{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .ident-img{
+        display: block;
+        text-align: right;
+    }
+    .ident-img>img{
+        max-width: 100%;
+    }
+    .ident-bottom{
+        padding: 20px 0;
+    }
+    .identfeat{
+        padding: 40px 0;
+    }
+    .identfeat-img{
+        margin-bottom: 40px;
+    }
+    .identtar-title>h2{
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 20px;
+    }
+    .identtar-top{
+        padding-bottom: 15px;
+    }
+    .identtar-top-item{
+        padding: 0 10px;
+    }
+    .identbox-item{
+        padding: 10px;
+    }
+    .identbox-item>h5{
+        font-size: 14px;
+    }
+    .identbox-item>h4{
+        font-size: 18px;
+    }
+    .identbox-bottom{
+        padding: 30px 0 15px;
+    }
+    .identinfo-title>h2{
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 40px;
+    }
+    .identinfo{
+        padding-bottom: 40px;
+    }
+    .identinfo-box-item{
+        width: 100%;
+    }
+    .identinfo-box-line::before{
+        content: none;
+    }
+    .identinfo-box-item-title{
+        font-size: 18px;
+        margin-top: 30px;
+        line-height: 24px;
+    }
+    .identstep1::before, .identstep2::before, .identstep3::before, .identstep4::before{
+        content: none;
+    }
+    .identstep-list{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .identstep-item{
+        width: 30%;
+        margin-bottom: 30px;
+    }
+    .identstep2, .identstep3, .identstep4, .identstep5{
+        margin-top: 0;
+    }
+    .identstep4, .identstep5{
+        width: 50%;
+    }
+    .identwhat{
+        padding: 50px 0;
+    }
+    .identwhat-text-box>h2{
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 30px;
+    }
+    .identwhat-text-box>ul>li{
+        font-size: 18px;
+        line-height: 40px;
+    }
+    .identstep{
+        padding-bottom: 50px;
+    }
+    .identstep-title>h2{
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 30px;
+    }
+    .identwhat-img{
+        padding: 20px 0;
+        border-radius: 10px;
+    }
+    .identstep-name>p{
+        font-size: 14px;
+    }
+    .identstop-title>h2{
+        font-size: 40px;
+        line-height: 50px;
+        margin-bottom: 30px;
+    }
+    .identstop-top{
+        padding: 0 25px;
+    }
+    .ident-text, .identfeat-text{
+        text-align: center;
+    }
+    .identstep-bottom{
+        margin-top: 20px;
+    }
+    .ident-text>p{
+        max-width: 100%;
+    }
+    .identstep-icon{
+        width: auto;
+        height: 40px;
+        margin-bottom: 10px;
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .identstep-num{
+        font-size: 24px;
+    }
+    .identstep-name>p{
+        font-size: 14px;
+    }
+    .identstep-des{
+        text-align: center;
+    }
+    .identstep-des>h4{
+        font-size: 16px;
+        margin: 0;
+    }
+    .identwhat-text-box>ul>li::before{
+        top: 15px;
+    }
+}

@@ -1,0 +1,233 @@
+@media(min-width:1300px){
+    .container{
+        max-width: 1200px;
+    }
+}
+
+@media(min-width: 1600px){
+    .container{
+        max-width: 1365px;
+    }
+}
+
+@media(max-width: 1599px){
+    .headerColumnTop .navbar-brand{
+        margin-right: 30px;
+    }
+    .headerColumnCenterTextFeaturesItemTitle > span{
+        font-size: 18px;
+    }
+    .aboutItemBoxText > span{
+        font-size: 14px;
+    }
+    .headerColumnCenterTextTitle{
+        margin-bottom: 0;
+    }
+    .headerColumnCenterTextMore{
+        margin-bottom: 40px;
+    }
+    .headerColumnCenterTextFeatures{
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 1400px){
+    .headerColumnCenterTextTitle > span{
+        font-size: 45px;
+    }
+    .headerColumnCenterTextTitle{
+        margin-bottom: 5px;
+    }
+    .headerColumnCenterTextSubtitle{
+        margin-bottom: 5px;
+    }
+    .headerColumnCenterTextDes{
+        margin-bottom: 10px;
+    }
+    .headerColumnCenterTextDes > span{
+        font-size: 16px;
+    }
+    .headerColumnCenterTextMore{
+        margin-bottom: 30px;
+    }
+    .headerColumnCenterTextFeatures{
+        margin-bottom: 20px;
+    }
+    .headerColumn{
+        height: 100%;
+    }
+}
+
+@media(max-width: 1300px){
+    .headerColumnTopCall{
+        margin-right: 20px;
+    }
+    .headerColumnTopLang{
+        margin-right: 20px;
+    }
+}
+
+@media(min-width:1199px){
+    .headerColumnTopCallMob{
+        display: none;
+    }
+}
+
+@media(max-width:1199px){
+    .headerColumnTopCall{
+        display: none;
+    }
+    .headerColumnTopCallMob{
+        display: block;
+        margin-right: 20px;
+    }
+    .headerColumnTop .nav-item{
+        padding: 10px 0;
+    }
+    .headerColumnTop .navbar-expand-lg .navbar-nav .nav-link{
+        font-size: 16px;
+    }
+    .headerColumnTopOpen > a{
+        padding: 15px 20px;
+    }
+    .headerColumnTop{
+        margin-bottom: 50px;
+    }
+    .headerColumnCenter{
+        margin-bottom: 50px;
+    }
+    .aboutTitleText > h1, .depositTitle > h2, .typesTitle > h2, .cashbackTitle > h2{
+        font-size: 40px;
+    }
+    .aboutItemTitle > span{
+        font-size: 22px;
+    }
+}
+
+@media(max-width:991px){
+    .aboutItemBox{
+        margin-bottom: 30px;
+    }
+    .navbar-collapse{
+        padding: 0 20px;
+        background: #141521;
+        position: relative;
+    }
+    .navbar-nav{
+        margin-top: 20px;
+        display: flex;
+    }
+    .headerColumnTopLang{
+        margin-right: 0;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+    .headerColumnTopOpen{
+        margin: 20px 0;
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+    .headerColumnTopOpen > a{
+        display: inline-block;
+        width: 100%;
+    }
+    .typesItemLineLeft{
+        border-right: 0;
+    }
+    .headerColumnTopCallMob{
+        display: none;
+    }
+    .headerColumnTopCall{
+        display: flex;
+    }
+    .headerMobileBox{
+        justify-content: space-between;
+    }
+    .footerBottomBox{
+        flex-direction: column;
+    }
+    .footerBottomBoxCopyright{
+        text-align: center;
+        margin-top: 10px;
+    }
+    .footerBoxDss{
+        margin-bottom: 30px;
+    }
+    .footerBoxList{
+        display: none;
+    }
+}
+
+@media(max-width:767px){
+    .aboutTitle{
+        margin-bottom: 40px;
+    }
+    .depositCards{
+        margin-bottom: 35px;
+    }
+    .depositForm{
+        margin-bottom: 30px;
+    }
+    .types{
+        padding: 30px 0;
+    }
+    .cashback{
+        padding: 40px 0;
+    }
+    .cashbackItemText{
+        margin-top: 20px;
+    }
+    .cashbackItemText > span{
+        font-size: 18px;
+        line-height: 20px;
+    }
+    .typesTitle{
+        margin-bottom: 25px;
+    }
+    .aboutLine{
+        margin-top: 20px;
+    }
+    .headerColumnCenterTextDownload{
+        flex-direction: column;
+    }
+    .headerColumnCenterTextDownloadItem{
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .aboutItemBoxIcon{
+        margin-bottom: 20px;
+    }
+    .typesItemImage{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .typesItemImage > img{
+        width: auto;
+    }
+    .cashbackItemBox{
+        padding: 20px;
+    }
+    .headerColumnCenter > .row{
+        flex-direction: column-reverse;
+    }
+    .headerColumnCenterImage{
+        margin-bottom: 30px;
+    }
+    .headerColumnCenterTextTitle > span{
+        font-size: 25px;
+    }
+    .headerColumnCenterTextSubtitle > span{
+        font-size: 18px;
+    }
+    .headerColumnCenterTextFeaturesItemBg, .aboutItemBoxIconBg{
+        display: none;
+    }
+    .headerColumnCenterTextFeaturesItem{
+        margin-bottom: 20px;
+    }
+    .aboutTitleText > h1, .depositTitle > h2, .typesTitle > h2, .cashbackTitle > h2{
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Euclid';
+    src: url('EuclidCircularA-Regular.otf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid';
+    src: url('EuclidCircularA-Semibold.otf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid';
+    src: url('EuclidCircularA-Bold.otf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}

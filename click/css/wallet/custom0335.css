@@ -1,0 +1,70 @@
+body{
+    font-family: 'Golos', sans-serif;
+    background: #181926 url(../../images/wallet/headerBg.png) no-repeat;
+    background-size: contain;
+    background-position: top left;
+}
+
+body::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #2f3542;
+}
+
+body::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #2f3542;
+}
+
+body::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #00B1E3;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+ul{
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.navbar{
+    padding: 0;
+}
+
+input:focus{
+    outline: 0;
+}
+
+button:focus{
+    outline: 0;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
+    bottom: 0;
+}
+
+.swiper-pagination-bullet{
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    background: rgba(255,255,255,0.09);
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active{
+    background: #00B1E3;
+}
