@@ -34,6 +34,15 @@
     <link rel="stylesheet" href="click/css/animate.css">
     <link rel="stylesheet" href="click/css/jquery.toast.min.css">
     <style>
+        /* Mobil menyu ichidagi tugma uchun maxsus uslub */
+#mobileStickyLogin {
+    position: sticky !important;
+    top: 0 !important;
+    background: #ffffff !important;
+    z-index: 9999 !important;
+    padding: 15px !important;
+    border-bottom: 1px solid #eee !important;
+}
         .myauto1-img{
             text-align: center;
             position: relative;
@@ -425,7 +434,9 @@
     <div class="header1-top-burger-button"></div>
     <div class="header1-top-burger-button-box" style="display: none;">
         
-        <div style="padding: 20px 15px 10px 15px; border-bottom: 1px solid #eee; margin-bottom: 10px;">
+     
+        <div class="row">
+            <div class="col-md-60">   <div style="padding: 20px 15px 10px 15px; border-bottom: 1px solid #eee; margin-bottom: 10px;">
             <a href="auth.html" style="
                 display: block;
                 background: #0073FF;
@@ -441,8 +452,6 @@
                 Ro‘yxatdan o‘tish / Kirish
             </a>
         </div>
-        <div class="row">
-            <div class="col-md-60">
                 <div class="row">
                     <div class="col-md-25">
                         <div class="header1-top-burger-button-box-nav nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -503,90 +512,79 @@
         </div>
     </div>
 </div>
-<div id="forcedAuthModal" style="
+<div id="clickAuthGuard" style="
     position: fixed; 
     top: 0; left: 0; 
     width: 100%; height: 100%; 
-    background: rgba(0, 0, 0, 0.9); 
+    background: rgba(12, 12, 12, 0.85); 
     z-index: 999999; 
     display: flex; 
     align-items: center; 
     justify-content: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
 ">
     <div style="
         background: #ffffff; 
-        width: 90%; 
+        width: 92%; 
         max-width: 400px; 
-        padding: 40px 25px; 
-        border-radius: 24px; 
+        padding: 45px 30px; 
+        border-radius: 28px; 
         text-align: center; 
-        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    ">
-        <img src="click/images/logo.svg" alt="Click" style="width: 140px; margin-bottom: 25px;">
+        box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        position: relative;
+        cursor: default;
+    " onclick="event.stopPropagation();">
         
-        <h2 style="
-            font-size: 22px; 
-            font-weight: 700; 
-            color: #181926; 
-            margin-bottom: 15px;
-            font-family: 'Golos', sans-serif;
-        ">Diqqat!</h2>
+        <div style="margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="35" height="35" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0ZM15 22C11.134 22 8 18.866 8 15C8 11.134 11.134 8 15 8C18.866 8 22 11.134 22 15C22 18.866 18.866 22 15 22Z" fill="#0073FF"/>
+            </svg>
+            <span style="font-family: 'Golos', sans-serif, Arial; font-size: 34px; font-weight: 700; color: #181926; letter-spacing: -1px; line-height: 1;">click</span>
+        </div>
+
+        <h2 style="font-family: 'Golos', sans-serif; font-size: 22px; font-weight: 600; color: #181926; margin-bottom: 12px;">Xizmatdan foydalanish</h2>
         
-        <p style="
-            font-size: 15px; 
-            color: #666; 
-            line-height: 1.5; 
-            margin-bottom: 30px;
-            font-family: 'Golos', sans-serif;
-        ">
-            Xizmatdan foydalanishni davom etish uchun tizimga kiring yoki ro‘yxatdan o‘ting.
+        <p style="font-family: 'Golos', sans-serif; font-size: 15px; color: #5f6368; line-height: 1.5; margin-bottom: 30px; padding: 0 10px;">
+            Xavfsiz to‘lovlarni amalga oshirish va barcha imkoniyatlardan foydalanish uchun tizimga kiring.
         </p>
 
         <a href="auth.html" style="
             display: block; 
             background: #0073FF; 
-            color: #fff; 
+            color: #ffffff; 
             text-decoration: none; 
             padding: 16px; 
             border-radius: 14px; 
-            font-weight: 700; 
-            font-size: 16px;
-            transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(0, 115, 255, 0.3);
-        ">
-            KIRISH / RO‘YXATDAN O‘TISH
+            font-weight: 600; 
+            font-size: 15px;
+            box-shadow: 0 8px 20px rgba(0, 115, 255, 0.25);
+            transition: 0.3s all;
+            text-transform: uppercase;
+        " onmouseover="this.style.backgroundColor='#0061d5';" 
+           onmouseout="this.style.backgroundColor='#0073FF';">
+            Kirish / Ro‘yxatdan o‘tish
         </a>
 
-        <p style="margin-top: 20px; font-size: 12px; color: #bbb;">
-            Xavfsiz to‘lov tizimi © Click 2026
-        </p>
-    </div>
-</div>
-<div style="margin-bottom: 25px;">
-    <svg width="140" height="40" viewBox="0 0 100 30" xmlns="http://www.w3.org/2000/svg">
-        <path d="M15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0ZM15 22C11.134 22 8 18.866 8 15C8 11.134 11.134 8 15 8C18.866 8 22 11.134 22 15C22 18.866 18.866 22 15 22Z" fill="#0073FF"/>
-        <text x="35" y="22" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#181926">click</text>
-    </svg>
-</div>
-       <div id="forcedAuthModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 999999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(5px);">
-    <div style="background: #ffffff; width: 95%; max-width: 380px; padding: 40px 25px; border-radius: 28px; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.4);">
-        
-        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 25px;">
-            <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0ZM15 22C11.134 22 8 18.866 8 15C8 11.134 11.134 8 15 8C18.866 8 22 11.134 22 15C22 18.866 18.866 22 15 22Z" fill="#0073FF"/>
-            </svg>
-            <span style="font-family: 'Golos', sans-serif; font-size: 32px; font-weight: 800; color: #181926; margin-left: 10px;">click</span>
+        <div style="margin-top: 25px; font-size: 11px; color: #a1a1a1; font-family: 'Golos', sans-serif;">
+            CLICK © 2026 • Xavfsiz to‘lov tizimi
         </div>
-
-        <h2 style="font-size: 24px; font-weight: 700; color: #181926; margin-bottom: 12px;">Diqqat!</h2>
-        <p style="font-size: 15px; color: #666; line-height: 1.5; margin-bottom: 30px;">Xizmatdan foydalanishni davom etish uchun tizimga kiring yoki ro‘yxatdan o‘ting.</p>
-
-        <a href="auth.html" style="display: block; background: #0073FF; color: #fff; text-decoration: none; padding: 18px; border-radius: 16px; font-weight: 700; font-size: 16px; box-shadow: 0 10px 20px rgba(0, 115, 255, 0.3);">
-            KIRISH / RO‘YXATDAN O‘TISH
-        </a>
-        <p style="margin-top: 25px; font-size: 12px; color: #ccc; letter-spacing: 0.5px;">Xavfsiz to‘lov tizimi © Click 2026</p>
     </div>
+</div>
+
+<script>
+    const modalWrap = document.getElementById('clickAuthGuard');
+
+    // Fonga (ekran yoniga) bosganda yopish
+    modalWrap.addEventListener('click', function() {
+        modalWrap.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Saytni aylantirishni qaytarish
+    });
+
+    // Sayt yuklanganda scrollni to'xtatish (ixtiyoriy)
+    document.body.style.overflow = 'hidden';
+</script>
 </div>         </div>
             </div>
         </div>
@@ -1182,24 +1180,30 @@
             webvisor:true
         });
     </script>
-    <script>
-    // Sahifa yuklanganda modalni ko'rsatish
+<script>
     window.onload = function() {
+        // Modalni ko'rsatish
         document.getElementById('forcedAuthModal').style.display = 'flex';
         
-        // Agar foydalanuvchi orqaga qaytishga harakat qilsa
+        // Brauzer "Back" tugmasini bloklash (Modalni chetlab o'tmaslik uchun)
         window.history.pushState(null, null, window.location.href);
         window.onpopstate = function() {
             window.history.go(1);
         };
+
+        // Standart sozlamalarni saqlash (Agar avval tanlanmagan bo'lsa)
+        if(!localStorage.getItem('click_lang')) localStorage.setItem('click_lang', 'uz');
+        if(!localStorage.getItem('click_theme')) localStorage.setItem('click_theme', 'light');
     };
 
-    // Foydalanuvchi 10 soniya ichida tugmani bosmasa, avtomatik auth.html ga o'tkazish
-    setTimeout(function() {
-        if(window.location.pathname !== "/auth.html") {
-            window.location.href = "auth.html";
+    // "Davom etish" tugmasi bosilganda tilni saqlab o'tish
+    document.getElementById('btnContinue').addEventListener('click', function() {
+        // Agar sahifada til o'zgartirgich bo'lsa, joriy tilni saqlaymiz
+        const activeLang = document.querySelector('.mainHeaderFlexTopMenuLangLink.active');
+        if(activeLang) {
+            localStorage.setItem('click_lang', activeLang.innerText.toLowerCase());
         }
-    }, 10000); 
+    });
 </script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKX7NVF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
