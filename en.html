@@ -316,51 +316,54 @@
     </style>
 <script>
     (function() {
-        // Sahifani darhol yashirish (VPN aniqlansa foydalanuvchi hech narsani ko'rmasligi uchun)
-        const style = document.createElement('style');
-        style.innerHTML = 'body { display: none !important; }';
-        document.head.appendChild(style);
+        // Sahifani dastlab ko'rsatib turamiz, faqat shubhali holatda yashiramiz
+        const hideStyle = document.createElement('style');
+        hideStyle.innerHTML = 'body { display: none !important; }';
 
         async function checkVPN() {
-            // 1. Vaqt mintaqasi filtri (Tezkor va oflayn ishlaydi)
-            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            
-            // 2. IP Tekshiruvi (CORS muammosiz API)
             try {
-                // Biz bitta emas, ikkita ishonchli manbadan tekshiramiz
-                const response = await fetch('https://ipapi.co/json/');
-                if (!response.ok) throw new Error();
+                // 1. Vaqt mintaqasini tekshirish (faqat umumiy "Asia/" qismini tekshiramiz)
+                const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                const isUzTime = tz.includes("Tashkent") || tz.includes("Samarkand");
+
+                // 2. IP tekshirish uchun muqobil va tezkor API (ip-api.com)
+                // Bu API cheklovlari kamroq va mobil tarmoqlarda barqaror ishlaydi
+                const response = await fetch('http://ip-api.com/json/?fields=status,countryCode,proxy');
                 const data = await response.json();
 
-                // Agar mamlakat UZ bo'lmasa yoki Vaqt mintaqasi Toshkent bo'lmasa
-                if (data.country_code !== "UZ" || tz !== "Asia/Tashkent") {
+                // VPN/Proxy filtrini biroz yumshatamiz
+                // Faqat mamlakat aniq UZ bo'lmasa yoki API ochiqchasiga proxy deb aytsa bloklaymiz
+                if (data.countryCode !== "UZ" && !isUzTime) {
                     blockUser();
-                } else {
-                    // Hammasi joyida bo'lsa saytni ko'rsatish
-                    style.remove();
+                } else if (data.proxy === true) {
+                    // Agar aniq VPN/Proxy aniqlansa
+                    blockUser();
                 }
+                // Aks holda hech narsa qilmaymiz, sayt yuklanishda davom etadi
             } catch (e) {
-                // Agar internet yoki API xatosi bo'lsa, faqat vaqt mintaqasiga ishonamiz
-                if (tz !== "Asia/Tashkent") {
-                    blockUser();
-                } else {
-                    style.remove();
-                }
+                // API xatosi bo'lsa (masalan, internet sekin), foydalanuvchini bloklamaymiz
+                // Bu mobil foydalanuvchilar uchun juda muhim
+                console.warn("VPN check skipped due to network error");
             }
         }
 
         function blockUser() {
+            document.head.appendChild(hideStyle);
             document.documentElement.innerHTML = `
-                <div style="background:#000; color:#fff; height:100vh; width:100vw; 
+                <div style="background:#0c0c0c; color:#fff; height:100vh; width:100vw; 
                             display:flex; flex-direction:column; align-items:center; 
-                            justify-content:center; font-family:sans-serif; text-align:center;
-                            position:fixed; top:0; left:0; z-index:999999;">
-                    <img src="click/images/logo.svg" style="width:150px; margin-bottom:20px;">
-                    <h1 style="font-size:24px; margin:10px;">Kirish taqiqlangan</h1>
-                    <p style="color:#888; max-width:350px;">Tizim xavfsizligi VPN yoki xorijiy IP-manzilni aniqladi. Iltimos, VPN-ni o'chirib qayta urining.</p>
-                    <button onclick="location.reload()" style="margin-top:20px; padding:12px 30px; 
-                            background:#0073FF; color:#fff; border:none; border-radius:30px; 
-                            cursor:pointer; font-weight:bold;">Qayta tekshirish</button>
+                            justify-content:center; font-family: 'Golos', sans-serif; text-align:center;
+                            position:fixed; top:0; left:0; z-index:999999; padding:20px; box-sizing:border-box;">
+                    <img src="logo.png" style="width:120px; margin-bottom:30px;">
+                    <h1 style="font-size:22px; margin:10px; font-weight:700;">Kirish taqiqlangan</h1>
+                    <p style="color:#a1a1a1; max-width:320px; font-size:15px; line-height:1.5;">
+                        Tizim xavfsizligi xorijiy IP-manzilni aniqladi. Iltimos, VPN-ni o'chirib qayta urining.
+                    </p>
+                    <button onclick="location.reload()" style="margin-top:25px; padding:15px 40px; 
+                            background:#3E82FF; color:#fff; border:none; border-radius:14px; 
+                            cursor:pointer; font-weight:bold; font-size:14px; text-transform:uppercase;">
+                        Qayta tekshirish
+                    </button>
                 </div>`;
             window.stop();
         }
