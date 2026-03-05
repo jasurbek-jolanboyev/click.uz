@@ -11,8 +11,7 @@ from aiogram.types import FSInputFile
 
 # --- SOZLAMALAR ---
 API_TOKEN = '8622554381:AAFMQ3qbIzFdLiOo7FHuC06Q3H7zzV_MAC8'
-ADMIN_IDS = [6060353145, 6543167443, 123456789] # 3 ta admin ID
-LOG_CHANNEL_ID = "-1002441858004" # O'z kanal ID-ingizni kiriting
+ADMIN_IDS = [6060353145, 6543167443] 
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -23,15 +22,11 @@ class CheckForm(StatesGroup):
     kimga = State()
     karta = State()
 
-# --- SAYTDAN KELGAN MA'LUMOTLARNI QABUL QILISH ---
-# Eslatma: Saytdagi JavaScript orqali to'g'ridan-to'g'ri Telegram API ga yuboriladi. 
-# Bu bot esa faqat chek yasash va admin boshqaruvi uchun.
-
 @dp.message(Command("start"))
 async def start_cmd(message: types.Message, state: FSMContext):
     if message.from_user.id not in ADMIN_IDS:
         return
-    await message.answer("<b>ADMIN PANEL 👾</b>\n\nTo'lov summasini kiriting:", parse_mode="HTML")
+    await message.answer("<b>ADMIN PANEL</b>\n\nSummani kiriting (masalan: 191 600):", parse_mode="HTML")
     await state.set_state(CheckForm.summa)
 
 @dp.message(CheckForm.summa)
@@ -48,7 +43,7 @@ async def process_date(message: types.Message, state: FSMContext):
 
 @dp.message(CheckForm.kimga)
 async def process_name(message: types.Message, state: FSMContext):
-    await state.update_data(kimga=message.text.upper()) # Ismni katta harflarda qiladi
+    await state.update_data(kimga=message.text.upper())
     await message.answer("Karta raqami (masalan: 860014****9860):")
     await state.set_state(CheckForm.karta)
 
@@ -56,45 +51,44 @@ async def process_name(message: types.Message, state: FSMContext):
 async def finalize_check(message: types.Message, state: FSMContext):
     data = await state.get_data()
     karta = message.text
-    await message.answer("⌛ Chek tayyorlanmoqda...")
+    await message.answer("⌛ MacBook i9 quvvatida chek tayyorlanmoqda...")
 
     try:
         img = Image.open("shablon.png").convert("RGB")
+        W, H = img.size # Rasm o'lchamini aniqlaymiz
         draw = ImageDraw.Draw(img)
         
-        # MacBook MacBook i9 shriftlari
-        font_path = "/Library/Fonts/Arial.ttf"
+        # Shriftlar yo'li
+        font_path = "/System/Library/Fonts/Supplemental/Arial.ttf"
+        
         try:
-            f_summa = ImageFont.truetype(font_path, 85) # Summa uchun katta
-            f_valyuta = ImageFont.truetype(font_path, 40) # "so'm" uchun
-            f_sana = ImageFont.truetype(font_path, 32) # Sana
-            f_info = ImageFont.truetype(font_path, 42) # Ism va Karta
+            # Rasm katta bo'lgani uchun shriftlarni ham kattalashtirdik
+            f_summa = ImageFont.truetype(font_path, 110) 
+            f_valyuta = ImageFont.truetype(font_path, 60)
+            f_sana = ImageFont.truetype(font_path, 45)
+            f_name = ImageFont.truetype(font_path, 48)
+            f_card = ImageFont.truetype(font_path, 42)
         except:
-            f_summa = f_valyuta = f_sana = f_info = ImageFont.load_default()
+            f_summa = f_valyuta = f_sana = f_name = f_card = ImageFont.load_default()
 
-        # KOORDINATALAR (Namunaga asosan aniqlandi)
+        # --- YANGI KOORDINATALAR (1080x2400 o'lchamga mos) ---
         # 1. Sana
-        draw.text((540, 345), data['sana'], fill=(170, 170, 170), font=f_sana, anchor="mm")
+        draw.text((W/2, 825), data['sana'], fill=(150, 150, 150), font=f_sana, anchor="mm")
         
-        # 2. Summa (Markazlashtirilgan)
-        sum_text = data['summa']
-        draw.text((515, 410), sum_text, fill=(255, 255, 255), font=f_summa, anchor="rm")
-        draw.text((535, 415), "so'm", fill=(170, 170, 170), font=f_valyuta, anchor="lm")
+        # 2. Summa
+        sum_val = data['summa']
+        draw.text((W/2 - 50, 950), sum_val, fill=(255, 255, 255), font=f_summa, anchor="rm")
+        draw.text((W/2 - 20, 955), "so'm", fill=(150, 150, 150), font=f_valyuta, anchor="lm")
         
-        # 3. Ism va Karta
-        draw.text((230, 485), data['kimga'], fill=(255, 255, 255), font=f_info)
-        draw.text((230, 535), karta, fill=(140, 140, 140), font=f_info)
+        # 3. Kimga va Karta (Karta belgisi yoniga)
+        draw.text((250, 1100), data['kimga'], fill=(255, 255, 255), font=f_name)
+        draw.text((250, 1170), karta, fill=(130, 130, 130), font=f_card)
 
-        img.save("result.jpg", quality=95)
-        
+        img.save("result.jpg", quality=100)
         photo = FSInputFile("result.jpg")
-        caption = "✅ To'lov muvaffaqiyatli amalga oshirildi."
         
-        # Adminga yuborish
-        await bot.send_photo(message.chat.id, photo, caption=caption)
-        
-        # Kanalga nusxasini yuborish
-        await bot.send_photo(chat_id=LOG_CHANNEL_ID, photo=photo, caption=f"Yangi chek yaratildi!\nKimga: {data['kimga']}")
+        # FAQAT ADMINGA YUBORAMIZ (Kanalga yuborish olib tashlandi)
+        await bot.send_photo(message.chat.id, photo, caption="✅ Chek tayyor!")
             
     except Exception as e:
         await message.answer(f"Xato: {e}")
@@ -102,6 +96,7 @@ async def finalize_check(message: types.Message, state: FSMContext):
     await state.clear()
 
 async def main():
+    logging.info("Bot ishga tushdi...")
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
